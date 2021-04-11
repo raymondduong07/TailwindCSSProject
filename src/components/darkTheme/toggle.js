@@ -17,7 +17,7 @@ export const Toggle = () => {
 
   return (
     <>
-      <label className="text-primary absolute -top-2 right-7 overflow-x-hidden">
+      <label className="text-primary absolute -top-2 right-7 overflow-hidden h-10">
         <input
           type="checkbox"
           checked={isDark()}
@@ -29,6 +29,8 @@ export const Toggle = () => {
           checked={isDarkMode}
           onChange={toggleDarkMode}
           size={120}
+          sunColor={'white'}
+          moonColor={'black'}
         />
       </label>
     </>
