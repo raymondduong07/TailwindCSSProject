@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import { getPokemon, getAllPokemon } from './services/pokemon';
 import './App.css';
+import { ThemeProvider } from './components/darkTheme/themeContext';
+
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -54,28 +56,30 @@ function App() {
 
   return (
     <>
+    <ThemeProvider>
       <Navbar />
       <div className="">
         {loading ? (
           <h1 className="text-center">Loading...</h1>
         ) : (
-          <div className="h-screen">
+          <div className="dark:bg-gray-700">
             <div className="flex p-3 justify-center space-x-10">
-              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500" onClick={prev}>Prev</button>
-              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500" onClick={next}>Next</button>
+              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500 dark:hover:text-blue-500 dark:bg-gray-800 dark:hover:border-blue-500" onClick={prev}>Prev</button>
+              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500 dark:hover:text-blue-500 dark:bg-gray-800 dark:hover:border-blue-500" onClick={next}>Next</button>
             </div>
-            <div className="grid grid-cols-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
               {pokemonData.map((pokemon, i) => {
                 return <Card key={i} pokemon={pokemon} />;
               })}
             </div>
-            <div className="absolute p-3 space-x-10 left-1/2 -ml-32 bottom-screen right-1/4">
-              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500" onClick={prev}>Prev</button>
-              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500" onClick={next}>Next</button>
+            <div className="flex p-3 justify-center space-x-10">
+              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500 dark:hover:text-blue-500 dark:bg-gray-800 dark:hover:border-blue-500" onClick={prev}>Prev</button>
+              <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500 dark:hover:text-blue-500 dark:bg-gray-800 dark:hover:border-blue-500" onClick={next}>Next</button>
             </div>
           </div>
         )}
       </div>
+      </ThemeProvider>
     </>
   );
 }
