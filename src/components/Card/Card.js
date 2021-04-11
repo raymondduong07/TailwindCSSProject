@@ -11,7 +11,7 @@ function Card({ pokemon }) {
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <div onClick={handleClick} className="cursor-pointer">
-        <div className="h-64 w-64 justify-self-center text-center rounded-md shadow-lg py-8 px-10 m-4 bg-gray-50 dark:bg-gray-900 dark:text-white ">
+        <div className="h-64 w-64 justify-self-center text-center rounded-md shadow-lg py-8 px-10 m-4 mr-auto ml-auto bg-gray-50 dark:bg-gray-900 dark:text-white ">
           <div className="text-right text-lg">
             <p>#{pokemon.id}</p>
           </div>

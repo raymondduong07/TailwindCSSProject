@@ -17,7 +17,7 @@ export const Toggle = () => {
 
   return (
     <>
-      <label className="text-primary absolute -top-3 right-5 overflow-x-hidden">
+      <label className="text-primary absolute -top-2 right-7 overflow-x-hidden">
         <input
           type="checkbox"
           checked={isDark()}
