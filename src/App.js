@@ -12,7 +12,7 @@ function App() {
   const [prevUrl, setPrevUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const initialURL = "https://pokeapi.co/api/v2/pokemon?limit=24";
-
+  
   useEffect(() => {
     async function fetchData() {
       let response = await getAllPokemon(initialURL);
@@ -68,8 +68,8 @@ function App() {
               <button className="border-2 border-transparent bg-red-500 m-4 py-2 px-4 font-bold uppercase text-white rounded transition-all hover:border-red-500 hover:bg-transparent hover:text-red-500 dark:hover:text-blue-500 dark:bg-gray-800 dark:hover:border-blue-500" onClick={next}>Next</button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
-              {pokemonData.map((pokemon, i) => {
-                return <Card key={i} pokemon={pokemon} />;
+              {pokemonData.map((pokemon, species, i) => {
+                return <Card key={i} pokemon={pokemon} species={species}/>;
               })}
             </div>
             <div className="flex p-3 justify-center space-x-10">
